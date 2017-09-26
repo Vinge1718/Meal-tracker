@@ -7,7 +7,7 @@ import { Meal } from "./meal.model";
     <div class="col-sm-4"  *ngIf="childSelectedMeal">
       <h4>Change the meal details</h4>
       <p>Enter Meals Name: <input [(ngModel)]="childSelectedMeal.name"></p>
-      <p>Fill in Calories: <input [(ngModel)]="childSelectedMeal.calories"></p>
+      <p>Fill in Calories:  kcal.<input type="number" [(ngModel)]="childSelectedMeal.calories"></p>
       <p>Enter Description: <input [(ngModel)]="childSelectedMeal.description"></p>
       <button (click)="saveButtonClick()">Save Changes</button>
     </div>
