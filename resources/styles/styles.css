@@ -4,3 +4,22 @@ h1{
 .jumbotron{
   text-align: center;
 }
+.row{
+  text-align: center;
+}
+hr{
+  height: 0.4px;
+  background-image: linear-gradient(to left,
+    rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.5));
+}
+input[type=number]{
+    width: 47px;
+}
+p input{
+  text-align: center;
+}
+h3 {
+  text-decoration: underline;
+  padding: 30px;
+}
