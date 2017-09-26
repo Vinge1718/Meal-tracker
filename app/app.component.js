@@ -9,19 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var meal_model_1 = require("./meal.model");
 var AppComponent = (function () {
     function AppComponent() {
-        this.meals = [new meal_model_1.Meal("chips", 555, "ndondo")];
-        this.selectedMeal = this.meals[0];
+        this.meals = [];
+        this.selectedMeal = null;
     }
+    AppComponent.prototype.saveButtonClick = function () {
+        this.selectedMeal = null;
+    };
     AppComponent.prototype.editThisMeal = function (clickedMeal) {
         this.selectedMeal = clickedMeal;
+    };
+    AppComponent.prototype.additionalMeal = function (newMealFromChild) {
+        this.meals.push(newMealFromChild);
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"container\">\n    <h1 class=\"jumbotron\">Meal Tracker</h1>\n    <h3>Your Meals so Far Today</h3><hr>\n    <div class=\"row\">\n      <div class=\"col-md-4\">\n        <div *ngFor=\"let currentMeal of meals\">\n          <p>Name of your meal: {{currentMeal.name}}</p>\n          <p>Calorie Count: kcal.{{currentMeal.calories}}</p>\n          <p>Meal Description: {{currentMeal.description}}</p>\n          <button (click)=\"editThisMeal(currentMeal)\">Edit</button>\n        </div>\n      </div>\n      <div class=\"col-md-4\">\n        <h4>Change the meal details</h4>\n        <p>Enter Meals Name: <input [(ngModel)]=\"selectedMeal.name\"></p>\n        <p>Fill in Calories: <input [(ngModel)]=\"selectedMeal.calories\"></p>\n        <p>Enter Description: <input [(ngModel)]=\"selectedMeal.description\"></p>\n        <button *ngIf=\"\" (click)=\"saveBottonClick()\">Save Changes</button>\n      </div>\n      <div class=\"col-md-4\"></div>\n    </div>\n  </div>\n  "
+            template: "\n    <div class=\"container\">\n      <h1 class=\"jumbotron\">Meal Tracker</h1>\n      <h3>An Application to Track your Daily Meals </h3><hr>\n      <div class=\"row\">\n        <div class=\"col-sm-4\">\n        <meal-list\n            [childMealList]=\"meals\"\n            (clickSender)=\"editThisMeal($event)\"\n          ></meal-list>\n        </div>\n        <meal-edit\n            [childSelectedMeal]=\"selectedMeal\"\n            (saveEditsClickSender)=\"saveButtonClick()\"\n          ></meal-edit>\n        <div class=\"col-sm-4\">\n          <new-meal\n              (newMealSender)=\"additionalMeal($event)\"\n            ></new-meal>\n        </div>\n      </div>\n    </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -4,12 +4,17 @@ import { Meal } from "./meal.model"
 @Component({
   selector:"new-meal",
   template:`
-  <h4>Enter Your Meal Details</h4>
-  <p>Enter Meals Name: <input #newName></p>
-  <p>Fill in Calories: <input #newCalories></p>
-  <p>Enter Description: <input #newDescription></p>
-  <button (click)="addClicked(newName.value, newCalories.value, newDescription.value)">Add</button>
-  `
+    <h4>Enter Your Meal Details</h4>
+    <p>Enter Meals Name: <input #newName></p>
+    <p>Fill in Calories:  kcal.<input type="number" #newCalories></p>
+    <p>Enter Description: <input #newDescription></p>
+    <button (click)="
+      addClicked(newName.value, newCalories.value, newDescription.value);
+      newName.value='';
+      newCalories.value='';
+      newDescription.value='';
+    ">Add</button>
+    `
 })
 
 export class NewMealComponent {
