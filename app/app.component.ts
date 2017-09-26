@@ -20,7 +20,7 @@ import { Meal } from "./meal.model"
         ></meal-edit>
       <div class="col-sm-4">
         <new-meal
-            (newTaskSender)="addionalMeal($event)"
+            (newMealSender)="additionalMeal($event)"
           ></new-meal>
       </div>
     </div>
@@ -29,7 +29,7 @@ import { Meal } from "./meal.model"
 })
 
 export class AppComponent {
-  public meals: Meal[] = [ new Meal("chips",555,"ndondo") ];
+  public meals: Meal[] = [  ];
 
   saveButtonClick(){
     this.selectedMeal = null;
@@ -40,7 +40,7 @@ export class AppComponent {
     this.selectedMeal=clickedMeal;
   }
 
-  addTask(newMealFromChild: Meal){
+  additionalMeal(newMealFromChild: Meal){
     this.meals.push(newMealFromChild);
   }
 }
