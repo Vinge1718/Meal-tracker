@@ -1,3 +1,3 @@
-export class Meals{
-  contructor(name: string, calories: number, desciption: string ){}
+export class Meal{
+  constructor(public name: string, public calories: number, public description: string){}
 }
