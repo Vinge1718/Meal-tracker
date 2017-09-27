@@ -10,7 +10,7 @@ Vinge1718
 - This program was tested from Google Chrome web browser.
 
 ## Getting Started
-- Clone or download the Package from [here](https://github.com/Vinge1718/To-Do-List---Bar-Tap-Example).
+- Clone or download the Package from [here](https://github.com/Vinge1718/Meal-tracker-IP2).
 - In the parent Directory run the following four commands
 * `npm install`
 * `bower install`
